@@ -87,7 +87,7 @@ func (b Body) String() string {
 
 func main() {
 	lang := flag.String("lang", "go", "A language that is used in a vscode-snippet path")
-	configPath := flag.String("path", "Library/Application Support/Code/User/snippets", "")
+	configPath := flag.String("path", ".config/helix", "")
 	flag.Parse()
 
 	home, err := os.UserHomeDir()
