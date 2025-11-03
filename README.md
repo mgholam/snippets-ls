@@ -25,8 +25,8 @@ formatter = { command = "goimports"}
 language-servers = ["gopls", "snippets-ls"]
 
 [language-server.snippets-ls]
-command = "snippets-ls"
-args = ["-lang", "go"]
+command = "bash"
+args = ["-c", "snippets-ls -path $HOME/.config/helix/go.json"]
 ```
 
 Subsequently, as you start working on your file, input a snippet prefix to observe the suggestion.
