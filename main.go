@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"path"
 	"strings"
 
 	"github.com/TobiasYin/go-lsp/logs"
@@ -86,18 +85,19 @@ func (b Body) String() string {
 }
 
 func main() {
-	lang := flag.String("lang", "go", "A language that is used in a vscode-snippet path")
-	configPath := flag.String("path", ".config/helix", "")
+	spath := flag.String("path", "go.json", "Path to snippet file")
+	// configPath := flag.String("path", ".config/helix", "")
 	flag.Parse()
 
-	home, err := os.UserHomeDir()
-	if err != nil {
-		log.Fatalf("Error getting home path: %v", err)
-	}
+	// home, err := os.UserHomeDir()
+	// if err != nil {
+	// 	log.Fatalf("Error getting home path: %v", err)
+	// }
 
-	configFile := path.Join(home, *configPath, *lang+".json")
+	// configFile := path.Join(home, *configPath, *lang+".json")
+	// log.Println(configFile)
 
-	data, err := os.ReadFile(configFile)
+	data, err := os.ReadFile(*spath)
 	if err != nil {
 		log.Fatalf("Error reading config file: %v", err)
 	}
